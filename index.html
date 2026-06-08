@@ -1,234 +1,307 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MathiX Games Corporation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>MathiX Games Corporation</title>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
 
-body{
-    background:#ffffff;
-    overflow:hidden;
-    height:100vh;
-    font-family:'Segoe UI',sans-serif;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-}
+    <style>
 
-/* Fond lumineux */
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
 
-body::before{
-    content:"";
-    position:absolute;
-    width:1200px;
-    height:1200px;
-    background:radial-gradient(circle,
-    rgba(0,0,0,0.08) 0%,
-    rgba(0,0,0,0) 70%);
-    animation:pulse 4s infinite;
-}
+        body{
+            height:100vh;
+            overflow:hidden;
+            background:#ffffff;
+            font-family:'Segoe UI',sans-serif;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            position:relative;
+        }
 
-@keyframes pulse{
-    0%,100%{
-        transform:scale(1);
-    }
-    50%{
-        transform:scale(1.2);
-    }
-}
+        /* Halo */
 
-/* Container */
+        .glow{
+            position:absolute;
+            width:900px;
+            height:900px;
+            border-radius:50%;
+            background:radial-gradient(
+                circle,
+                rgba(0,0,0,0.10),
+                transparent 70%
+            );
+            animation:pulse 5s infinite ease-in-out;
+        }
 
-.container{
-    text-align:center;
-    z-index:10;
-}
+        @keyframes pulse{
+            0%,100%{
+                transform:scale(1);
+            }
+            50%{
+                transform:scale(1.25);
+            }
+        }
 
-/* Logo */
+        /* Éclairs */
 
-.logo{
-    width:420px;
-    max-width:80vw;
-    animation:
-        shake 0.08s infinite,
-        float 4s ease-in-out infinite;
-    filter:drop-shadow(0 0 25px rgba(0,0,0,0.25));
-}
+        .lightning{
+            position:absolute;
+            width:12px;
+            height:260px;
+            background:black;
+            opacity:0;
 
-/* Tremblement */
+            clip-path:polygon(
+                50% 0%,
+                100% 35%,
+                70% 35%,
+                100% 100%,
+                0% 55%,
+                30% 55%
+            );
 
-@keyframes shake{
-    0%{transform:translate(0px,0px);}
-    25%{transform:translate(-2px,1px);}
-    50%{transform:translate(2px,-1px);}
-    75%{transform:translate(-1px,-2px);}
-    100%{transform:translate(1px,2px);}
-}
+            animation:flash 2s infinite;
+        }
 
-/* Flottement */
+        .l1{
+            left:8%;
+            top:8%;
+        }
 
-@keyframes float{
-    0%,100%{
-        transform:translateY(0px);
-    }
-    50%{
-        transform:translateY(-15px);
-    }
-}
+        .l2{
+            right:12%;
+            top:12%;
+            animation-delay:.6s;
+        }
 
-/* Titre */
+        .l3{
+            left:22%;
+            bottom:8%;
+            animation-delay:1s;
+        }
 
-h1{
-    margin-top:40px;
-    font-size:4rem;
-    color:#000;
-    font-weight:900;
-    letter-spacing:4px;
-    text-transform:uppercase;
-}
+        .l4{
+            right:18%;
+            bottom:12%;
+            animation-delay:1.5s;
+        }
 
-.subtitle{
-    margin-top:10px;
-    font-size:1.4rem;
-    letter-spacing:6px;
-    color:#444;
-}
+        .l5{
+            top:0;
+            left:50%;
+            animation-delay:.3s;
+        }
 
-.slogan{
-    margin-top:30px;
-    font-size:1.2rem;
-    color:#666;
-}
+        @keyframes flash{
+            0%,90%,100%{
+                opacity:0;
+            }
 
-/* Éclairs */
+            92%{
+                opacity:1;
+            }
 
-.lightning{
-    position:absolute;
-    width:12px;
-    height:280px;
-    background:black;
+            95%{
+                opacity:.25;
+            }
 
-    clip-path:polygon(
-    50% 0%,
-    100% 35%,
-    70% 35%,
-    100% 100%,
-    0% 55%,
-    30% 55%
-    );
+            98%{
+                opacity:1;
+            }
+        }
 
-    opacity:0;
-}
+        /* Container */
 
-.lightning:nth-child(1){
-    top:5%;
-    left:10%;
-    animation:flash 2s infinite;
-}
+        .container{
+            text-align:center;
+            z-index:10;
+        }
 
-.lightning:nth-child(2){
-    top:15%;
-    right:15%;
-    animation:flash 3s infinite 0.5s;
-}
+        /* Logo */
 
-.lightning:nth-child(3){
-    bottom:5%;
-    left:25%;
-    animation:flash 2.5s infinite 1s;
-}
+        .logo{
+            width:420px;
+            max-width:80vw;
 
-.lightning:nth-child(4){
-    bottom:15%;
-    right:20%;
-    animation:flash 1.8s infinite;
-}
+            filter:drop-shadow(0 0 25px rgba(0,0,0,.2));
 
-.lightning:nth-child(5){
-    top:0%;
-    left:50%;
-    animation:flash 2.2s infinite 1.3s;
-}
+            animation:
+            shake .08s infinite,
+            floating 4s ease-in-out infinite;
+        }
 
-@keyframes flash{
-    0%,90%,100%{
-        opacity:0;
-    }
+        @keyframes shake{
+            0%{transform:translate(0px,0px);}
+            25%{transform:translate(-1px,1px);}
+            50%{transform:translate(1px,-1px);}
+            75%{transform:translate(-1px,-1px);}
+            100%{transform:translate(1px,1px);}
+        }
 
-    92%{
-        opacity:1;
-    }
+        @keyframes floating{
+            0%,100%{
+                transform:translateY(0);
+            }
+            50%{
+                transform:translateY(-12px);
+            }
+        }
 
-    94%{
-        opacity:0.2;
-    }
+        h1{
+            margin-top:30px;
+            font-size:4rem;
+            font-weight:900;
+            color:#000;
+            letter-spacing:4px;
+            text-transform:uppercase;
+        }
 
-    96%{
-        opacity:1;
-    }
-}
+        .subtitle{
+            font-size:1.3rem;
+            letter-spacing:8px;
+            color:#444;
+            margin-top:10px;
+        }
 
-/* Responsive */
+        .description{
+            margin-top:25px;
+            color:#666;
+            font-size:1.1rem;
+        }
 
-@media(max-width:768px){
+        /* Bouton Discord */
 
-    h1{
-        font-size:2.2rem;
-    }
+        .discord-btn{
+            display:inline-block;
+            margin-top:40px;
+            padding:18px 42px;
 
-    .subtitle{
-        font-size:1rem;
-        letter-spacing:3px;
-    }
+            text-decoration:none;
+            color:white;
 
-    .slogan{
-        font-size:1rem;
-        padding:0 20px;
-    }
+            font-weight:800;
+            font-size:1rem;
+            letter-spacing:2px;
+            text-transform:uppercase;
 
-    .logo{
-        width:280px;
-    }
-}
+            background:black;
 
-</style>
+            border-radius:18px;
+
+            transition:.3s;
+
+            box-shadow:
+                0 0 20px rgba(0,0,0,.25),
+                0 0 50px rgba(0,0,0,.15);
+
+            animation:glowBtn 2s infinite;
+        }
+
+        @keyframes glowBtn{
+            0%,100%{
+                box-shadow:
+                    0 0 20px rgba(0,0,0,.25),
+                    0 0 50px rgba(0,0,0,.15);
+            }
+
+            50%{
+                box-shadow:
+                    0 0 40px rgba(0,0,0,.45),
+                    0 0 80px rgba(0,0,0,.25);
+            }
+        }
+
+        .discord-btn:hover{
+            transform:translateY(-5px) scale(1.05);
+        }
+
+        .discord-btn:active{
+            transform:scale(.95);
+        }
+
+        /* Footer */
+
+        footer{
+            position:absolute;
+            bottom:20px;
+            left:0;
+            right:0;
+            text-align:center;
+            color:#666;
+            font-size:.9rem;
+        }
+
+        @media(max-width:768px){
+
+            .logo{
+                width:260px;
+            }
+
+            h1{
+                font-size:2rem;
+            }
+
+            .subtitle{
+                font-size:1rem;
+                letter-spacing:4px;
+            }
+
+            .description{
+                padding:0 20px;
+                font-size:1rem;
+            }
+        }
+
+    </style>
 </head>
-
 <body>
 
-<div class="lightning"></div>
-<div class="lightning"></div>
-<div class="lightning"></div>
-<div class="lightning"></div>
-<div class="lightning"></div>
+    <div class="glow"></div>
 
-<div class="container">
+    <div class="lightning l1"></div>
+    <div class="lightning l2"></div>
+    <div class="lightning l3"></div>
+    <div class="lightning l4"></div>
+    <div class="lightning l5"></div>
 
-    <!-- Remplace par ton logo -->
-    <img src="logo.png"
-         alt="MathiX Games Corporation"
-         class="logo">
+    <div class="container">
 
-    <h1>MathiX Games</h1>
+        <img src="logo.png" alt="MathiX Games Logo" class="logo">
 
-    <div class="subtitle">
-        CORPORATION
+        <h1>MathiX Games</h1>
+
+        <div class="subtitle">
+            CORPORATION
+        </div>
+
+        <div class="description">
+            Créons l'avenir du jeu vidéo.
+        </div>
+
+        <a
+            href="https://discord.gg/QEhjJ82zme"
+            target="_blank"
+            class="discord-btn">
+            Rejoindre le Discord
+        </a>
+
     </div>
 
-    <div class="slogan">
-        Creating the Future of Gaming
-    </div>
-
-</div>
+    <footer>
+        © 2025 MathiX Games Corporation - Tous droits réservés
+    </footer>
 
 </body>
 </html>
