@@ -17,14 +17,14 @@
 }
 
 body{
-    height:100vh;
-    overflow:hidden;
     background:white;
+    min-height:100vh;
     font-family:'Segoe UI',sans-serif;
     display:flex;
     justify-content:center;
     align-items:center;
     position:relative;
+    overflow:hidden;
 }
 
 /* Halo */
@@ -34,11 +34,9 @@ body{
     width:900px;
     height:900px;
     border-radius:50%;
-    background:radial-gradient(
-        circle,
-        rgba(0,0,0,.10),
-        transparent 70%
-    );
+    background:radial-gradient(circle,
+    rgba(0,0,0,0.10),
+    transparent 70%);
     animation:pulse 5s infinite ease-in-out;
 }
 
@@ -69,10 +67,10 @@ body{
 }
 
 .l1{left:8%;top:8%;}
-.l2{right:12%;top:12%;animation-delay:.6s;}
-.l3{left:22%;bottom:8%;animation-delay:1s;}
+.l2{right:12%;top:12%;animation-delay:.5s;}
+.l3{left:20%;bottom:8%;animation-delay:1s;}
 .l4{right:18%;bottom:12%;animation-delay:1.5s;}
-.l5{top:0;left:50%;animation-delay:.3s;}
+.l5{top:0;left:50%;animation-delay:.2s;}
 
 @keyframes flash{
     0%,90%,100%{opacity:0;}
@@ -87,15 +85,16 @@ body{
     text-align:center;
     z-index:10;
     width:90%;
-    max-width:1000px;
+    max-width:1200px;
 }
 
 .logo{
     width:180px;
+    margin-bottom:20px;
 
     animation:
-        shake .08s infinite,
-        floating 4s ease-in-out infinite;
+    shake .08s infinite,
+    floating 4s ease-in-out infinite;
 }
 
 @keyframes shake{
@@ -112,16 +111,20 @@ body{
 }
 
 h1{
-    margin-top:20px;
     font-size:3rem;
-    letter-spacing:3px;
     text-transform:uppercase;
+    letter-spacing:4px;
+    margin-bottom:10px;
 }
 
-/* Cartes */
+.subtitle{
+    color:#666;
+    margin-bottom:40px;
+}
+
+/* Offres */
 
 .offers{
-    margin-top:40px;
     display:flex;
     justify-content:center;
     gap:30px;
@@ -150,6 +153,7 @@ h1{
 
 .offer p{
     color:#666;
+    min-height:60px;
 }
 
 .price{
@@ -162,16 +166,20 @@ h1{
 
 .buy-btn{
     display:inline-block;
-    text-decoration:none;
+    padding:15px 35px;
+
     background:black;
     color:white;
+    text-decoration:none;
 
-    padding:15px 35px;
     border-radius:15px;
-
     font-weight:800;
 
     transition:.3s;
+
+    box-shadow:
+    0 0 20px rgba(0,0,0,.2),
+    0 0 40px rgba(0,0,0,.1);
 }
 
 .buy-btn:hover{
@@ -184,7 +192,7 @@ h1{
 
     color:black;
     text-decoration:none;
-    font-weight:700;
+    font-weight:bold;
 }
 
 footer{
@@ -200,6 +208,7 @@ footer{
 
     body{
         overflow:auto;
+        padding:30px 0;
     }
 
     h1{
@@ -229,6 +238,10 @@ footer{
 
     <h1>Nos Offres</h1>
 
+    <div class="subtitle">
+        Choisissez la formule adaptée à votre projet
+    </div>
+
     <div class="offers">
 
         <div class="offer">
@@ -236,16 +249,15 @@ footer{
 
             <p>
                 Création d'un site Google simple,
-                rapide et efficace.
+                rapide et fonctionnel.
             </p>
 
             <div class="price">5€</div>
 
-            <a
-            href="https://www.paypal.com/paypalme/nourah2officiel/5"
-            target="_blank"
-            class="buy-btn">
-                Acheter
+            <a href="https://paypal.me/HamdiHaroun413323/5"
+               target="_blank"
+               class="buy-btn">
+               Acheter
             </a>
         </div>
 
@@ -254,16 +266,15 @@ footer{
 
             <p>
                 Site web moderne, personnalisé
-                et optimisé.
+                et optimisé pour votre activité.
             </p>
 
             <div class="price">11€</div>
 
-            <a
-            href="https://www.paypal.com/paypalme/nourah2officiel/11"
-            target="_blank"
-            class="buy-btn">
-                Acheter
+            <a href="https://paypal.me/HamdiHaroun413323/11"
+               target="_blank"
+               class="buy-btn">
+               Acheter
             </a>
         </div>
 
