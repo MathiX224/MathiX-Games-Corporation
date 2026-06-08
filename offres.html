@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nos Offres - MathiX Games</title>
+
+<link rel="icon" href="logo.png">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:white;
+    font-family:'Segoe UI',sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+/* Halo */
+
+.glow{
+    position:absolute;
+    width:900px;
+    height:900px;
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(0,0,0,.10),
+        transparent 70%
+    );
+    animation:pulse 5s infinite ease-in-out;
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.25);}
+}
+
+/* Éclairs */
+
+.lightning{
+    position:absolute;
+    width:12px;
+    height:260px;
+    background:black;
+    opacity:0;
+
+    clip-path:polygon(
+        50% 0%,
+        100% 35%,
+        70% 35%,
+        100% 100%,
+        0% 55%,
+        30% 55%
+    );
+
+    animation:flash 2s infinite;
+}
+
+.l1{left:8%;top:8%;}
+.l2{right:12%;top:12%;animation-delay:.6s;}
+.l3{left:22%;bottom:8%;animation-delay:1s;}
+.l4{right:18%;bottom:12%;animation-delay:1.5s;}
+.l5{top:0;left:50%;animation-delay:.3s;}
+
+@keyframes flash{
+    0%,90%,100%{opacity:0;}
+    92%{opacity:1;}
+    95%{opacity:.2;}
+    98%{opacity:1;}
+}
+
+/* Contenu */
+
+.container{
+    text-align:center;
+    z-index:10;
+    width:90%;
+    max-width:1000px;
+}
+
+.logo{
+    width:180px;
+
+    animation:
+        shake .08s infinite,
+        floating 4s ease-in-out infinite;
+}
+
+@keyframes shake{
+    0%{transform:translate(0,0);}
+    25%{transform:translate(-1px,1px);}
+    50%{transform:translate(1px,-1px);}
+    75%{transform:translate(-1px,-1px);}
+    100%{transform:translate(1px,1px);}
+}
+
+@keyframes floating{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+
+h1{
+    margin-top:20px;
+    font-size:3rem;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+/* Cartes */
+
+.offers{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.offer{
+    width:320px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+
+    box-shadow:
+        0 0 25px rgba(0,0,0,.15);
+
+    transition:.3s;
+}
+
+.offer:hover{
+    transform:translateY(-8px);
+}
+
+.offer h2{
+    margin-bottom:15px;
+}
+
+.offer p{
+    color:#666;
+}
+
+.price{
+    font-size:2.5rem;
+    font-weight:900;
+    margin:25px 0;
+}
+
+/* Boutons */
+
+.buy-btn{
+    display:inline-block;
+    text-decoration:none;
+    background:black;
+    color:white;
+
+    padding:15px 35px;
+    border-radius:15px;
+
+    font-weight:800;
+
+    transition:.3s;
+}
+
+.buy-btn:hover{
+    transform:scale(1.05);
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:35px;
+
+    color:black;
+    text-decoration:none;
+    font-weight:700;
+}
+
+footer{
+    position:absolute;
+    bottom:15px;
+    width:100%;
+    text-align:center;
+    color:#666;
+    font-size:.9rem;
+}
+
+@media(max-width:768px){
+
+    body{
+        overflow:auto;
+    }
+
+    h1{
+        font-size:2rem;
+    }
+
+    .logo{
+        width:140px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="glow"></div>
+
+<div class="lightning l1"></div>
+<div class="lightning l2"></div>
+<div class="lightning l3"></div>
+<div class="lightning l4"></div>
+<div class="lightning l5"></div>
+
+<div class="container">
+
+    <img src="logo.png" alt="MathiX Games" class="logo">
+
+    <h1>Nos Offres</h1>
+
+    <div class="offers">
+
+        <div class="offer">
+            <h2>Google Site</h2>
+
+            <p>
+                Création d'un site Google simple,
+                rapide et efficace.
+            </p>
+
+            <div class="price">5€</div>
+
+            <a
+            href="https://www.paypal.com/paypalme/nourah2officiel/5"
+            target="_blank"
+            class="buy-btn">
+                Acheter
+            </a>
+        </div>
+
+        <div class="offer">
+            <h2>Site Professionnel</h2>
+
+            <p>
+                Site web moderne, personnalisé
+                et optimisé.
+            </p>
+
+            <div class="price">11€</div>
+
+            <a
+            href="https://www.paypal.com/paypalme/nourah2officiel/11"
+            target="_blank"
+            class="buy-btn">
+                Acheter
+            </a>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back-btn">
+        ← Retour à l'accueil
+    </a>
+
+</div>
+
+<footer>
+    © 2025 MathiX Games Corporation
+</footer>
+
+</body>
+</html>
