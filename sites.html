@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nos sites internet - MathiX Games Corporation</title>
+<title>Nos Sites Internet - MathiX Games</title>
 
-<link rel="icon" href="logo.png">
+<link rel="icon" type="image/png" href="logo.png">
 
 <style>
 
@@ -17,35 +17,36 @@
 }
 
 body{
-    height:100vh;
-    overflow:hidden;
-    background:white;
+    background:#fff;
     font-family:'Segoe UI',sans-serif;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
+    overflow:hidden;
     position:relative;
 }
 
-/* Halo lumineux */
+/* Halo */
 
 .glow{
     position:absolute;
-    width:900px;
-    height:900px;
+    width:1000px;
+    height:1000px;
     border-radius:50%;
     background:radial-gradient(
         circle,
-        rgba(0,0,0,.10),
+        rgba(0,0,0,.08),
         transparent 70%
     );
-    animation:pulse 5s infinite ease-in-out;
+    animation:pulse 5s infinite;
 }
 
 @keyframes pulse{
     0%,100%{
         transform:scale(1);
     }
+
     50%{
         transform:scale(1.25);
     }
@@ -58,7 +59,6 @@ body{
     width:12px;
     height:260px;
     background:black;
-    opacity:0;
 
     clip-path:polygon(
         50% 0%,
@@ -69,36 +69,37 @@ body{
         30% 55%
     );
 
-    animation:flash 2s infinite;
+    opacity:0;
 }
 
 .l1{
+    top:5%;
     left:8%;
-    top:8%;
+    animation:flash 2s infinite;
 }
 
 .l2{
-    right:12%;
-    top:12%;
-    animation-delay:.6s;
+    top:10%;
+    right:10%;
+    animation:flash 3s infinite .5s;
 }
 
 .l3{
-    left:22%;
-    bottom:8%;
-    animation-delay:1s;
+    bottom:5%;
+    left:20%;
+    animation:flash 2.5s infinite 1s;
 }
 
 .l4{
-    right:18%;
-    bottom:12%;
-    animation-delay:1.5s;
+    bottom:10%;
+    right:15%;
+    animation:flash 2s infinite .8s;
 }
 
 .l5{
     top:0;
     left:50%;
-    animation-delay:.3s;
+    animation:flash 2.2s infinite 1.2s;
 }
 
 @keyframes flash{
@@ -120,26 +121,28 @@ body{
     }
 }
 
-/* Contenu */
+/* Container */
 
 .container{
     text-align:center;
     z-index:10;
 }
 
-.logo{
-    width:250px;
-    max-width:80vw;
+/* Logo */
 
-    filter:drop-shadow(0 0 25px rgba(0,0,0,.2));
+.logo{
+    width:220px;
+    max-width:80vw;
 
     animation:
     shake .08s infinite,
     floating 4s ease-in-out infinite;
+
+    filter:drop-shadow(0 0 20px rgba(0,0,0,.2));
 }
 
 @keyframes shake{
-    0%{transform:translate(0px,0px);}
+    0%{transform:translate(0,0);}
     25%{transform:translate(-1px,1px);}
     50%{transform:translate(1px,-1px);}
     75%{transform:translate(-1px,-1px);}
@@ -150,40 +153,49 @@ body{
     0%,100%{
         transform:translateY(0);
     }
+
     50%{
         transform:translateY(-12px);
     }
 }
 
 h1{
-    margin-top:25px;
+    margin-top:20px;
     font-size:3rem;
     font-weight:900;
-    color:black;
-    text-transform:uppercase;
     letter-spacing:4px;
+    text-transform:uppercase;
 }
 
 .subtitle{
+    color:#666;
     margin-top:10px;
-    color:#555;
-    font-size:1.1rem;
-    letter-spacing:5px;
+    margin-bottom:40px;
+}
+
+/* Liste des sites */
+
+.sites-list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    align-items:center;
 }
 
 /* Boutons */
 
 .site-btn{
     display:inline-block;
-    margin-top:40px;
-    padding:18px 42px;
+
+    min-width:280px;
+
+    padding:18px 40px;
+
+    background:black;
+    color:white;
 
     text-decoration:none;
-    color:white;
-    background:black;
-
     font-weight:800;
-    font-size:1rem;
     letter-spacing:2px;
 
     border-radius:18px;
@@ -191,21 +203,24 @@ h1{
     transition:.3s;
 
     box-shadow:
-        0 0 20px rgba(0,0,0,.25),
-        0 0 50px rgba(0,0,0,.15);
+    0 0 20px rgba(0,0,0,.25),
+    0 0 50px rgba(0,0,0,.15);
 }
 
 .site-btn:hover{
-    transform:translateY(-5px) scale(1.05);
+
+    transform:
+    translateY(-5px)
+    scale(1.05);
 
     box-shadow:
-        0 0 40px rgba(0,0,0,.45),
-        0 0 80px rgba(0,0,0,.25);
+    0 0 40px rgba(0,0,0,.45),
+    0 0 80px rgba(0,0,0,.25);
 }
 
 .back-btn{
-    display:block;
-    margin-top:25px;
+    display:inline-block;
+    margin-top:30px;
 
     color:black;
     text-decoration:none;
@@ -223,16 +238,21 @@ footer{
 
 @media(max-width:768px){
 
-    .logo{
-        width:180px;
+    body{
+        overflow:auto;
+        padding:30px 0;
     }
 
     h1{
         font-size:2rem;
     }
 
-    .subtitle{
-        font-size:.9rem;
+    .logo{
+        width:160px;
+    }
+
+    .site-btn{
+        min-width:240px;
     }
 }
 
@@ -252,27 +272,36 @@ footer{
 
     <img src="logo.png" alt="MathiX Games" class="logo">
 
-    <h1>Nos sites internet</h1>
+    <h1>Nos Sites Internet</h1>
 
     <div class="subtitle">
-        Découvrez nos projets
+        Découvrez les projets de MathiX Games Corporation
     </div>
 
-    <a
+    <div class="sites-list">
+
+        <a
         href="https://mathix224.github.io/astralys-site/"
         target="_blank"
         class="site-btn">
-        ✦ ASTRALYS ✦
-    </a>
+            ✦ ASTRALYS ✦
+        </a>
 
-    <br><br>
+        <a
+        href="https://mathix224.github.io/Sunraku/"
+        target="_blank"
+        class="site-btn">
+            ✦ SUNRAKU ✦
+        </a>
 
-<a
-    href="https://mathix224.github.io/Sunraku/"
-    target="_blank"
-    class="site-btn">
-    ✦ SUNRAKU ✦
-</a>
+        <a
+        href="https://mathix224.github.io/Perpignan-RP/index.html"
+        target="_blank"
+        class="site-btn">
+            ✦ PERPIGNAN RP ✦
+        </a>
+
+    </div>
 
     <a href="index.html" class="back-btn">
         ← Retour à l'accueil
